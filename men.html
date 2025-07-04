@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Clothing</title>
+    <link rel="stylesheet" href="men.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Men's Clothing</h1>
+        <div class="products">
+            <div class="product">
+                <img src="10.jpg" alt="Classic Shirt">
+                <h2>Classic Shirt</h2>
+                <p>Price: $90</p>
+                <button class="add-to-cart" onclick="addToCart('Classic Shirt', 90)">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="11.avif" alt="Casual Jacket">
+                <h2>Casual Jacket</h2>
+                <p>Price: $80</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Jacket', 90)">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="12.jpg" alt="Casual Shirt">
+                <h2>Casual Shirt</h2>
+                <p>Price: $70</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Shirt', 90)">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="13.jpg" alt="Graphic Tee">
+                <h2>Graphic Tee</h2>
+                <p>Price: $100</p>
+                <button class="add-to-cart" onclick="addToCart('Graphic Tee', 90)">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="19.avif" alt="Casual Shirt">
+                <h2>Baggy</h2>
+                <p>Price: $99</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Shirt', 90)">Add To Cart</button>
+            </div>
+            <div class="product">
+                <img src="16.avif" alt="Casual Shirt">
+                <h2>Cargo</h2>
+                <p>Price: $95</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Shirt', 90)">Add To Cart</button>
+            </div>
+                <div class="product">
+                <img src="17.avif" alt="Casual Shirt">
+                <h2>Grey Trouser</h2>
+                <p>Price: $105</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Shirt', 90)">Add To Cart</button>
+            </div>
+                <div class="product">
+                <img src="18.avif" alt="Casual Shirt">
+                <h2>Formal</h2>
+                <p>Price: $65</p>
+                <button class="add-to-cart" onclick="addToCart('Casual Shirt', 90)">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(name, price) {
+            window.location.href = `cart.html?name=${encodeURIComponent(name)}&price=${price}`;
+        }
+    </script>
+    <script src="fix-men.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: white;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  margin-right: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  opacity: 0;
+  animation: fadeInDown 1s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-top {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 20px;
+  font-size: 13px;
+  margin-right: 150px;
+}
+
+.header-links a {
+  margin-left: 20px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header-links a:hover {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+.header-links .luxebox {
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.header-links .luxebox:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+#logo {
+  margin-left: 150px;
+  transition: transform 0.3s ease;
+}
+
+#logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #2d2d2d;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.nav-menu a:hover {
+  color: #007bff;
+}
+
+.search-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 150px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  padding: 8px 35px 8px 10px;
+  border-radius: 25px;
+  border: 1px solid #999;
+  background-color: #fffff0;
+  width: 200px;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  width: 250px;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.search-bar i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.search-bar i:hover {
+  color: #007bff;
+}
+
+.icon {
+  font-size: 18px;
+  color: #2d3e50;
+  background-color: #2d3e50;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover {
+  background: #007bff;
+  transform: rotate(360deg);
+}
+
+#img1 {
+  height: 400px;
+  width: 1500px;
+  position: fixed;
+}
+
+#img11 {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  background: #eee;
+  opacity: 0;
+}
+
+#img11.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+#img11:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+div #sale {
+  width: 1500px;
+  height: 700px;
+}
+
+.view-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-container:hover .scroll-track {
+  animation-play-state: paused;
+}

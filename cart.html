@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Your Cart</h1>
+    <div id="cart-items"></div>
+    <button onclick="addItem()">Add Custom Item</button>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <p id="total">Total: $0.00</p>
+    <a href="men.html">← Back to Men's Clothing</a>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      
+      const storedItem = sessionStorage.getItem('cartProduct');
+      if (storedItem) {
+        const { name, price } = JSON.parse(storedItem);
+        if (name && !isNaN(price)) {
+          cart.push({ name, price });
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        sessionStorage.removeItem('cartProduct');
+      }
+
+      cart.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <span>${item.name}</span>
+          <input type="number" value="${item.price}" step="0.01" min="0" onchange="calculateTotal()">
+          <button onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItems.appendChild(div);
+      });
+
+      calculateTotal();
+    }
+
+    function addItem() {
+      const name = prompt("Enter item name:");
+      const price = parseFloat(prompt("Enter item price:"));
+      if (name && !isNaN(price)) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+      }
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    function calculateTotal() {
+      const prices = document.querySelectorAll('.cart-item input');
+      let total = 0;
+      let cart = [];
+
+      prices.forEach((input, i) => {
+        const price = parseFloat(input.value);
+        const name = document.querySelectorAll('.cart-item span')[i].textContent;
+        if (!isNaN(price)) {
+          total += price;
+          cart.push({ name, price });
+        }
+      });
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    window.onload = loadCart;
+  </script>
+</body>
+</html>
